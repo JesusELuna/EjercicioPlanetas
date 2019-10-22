@@ -10,7 +10,7 @@ namespace MeliChallenge
         [TestMethod]
         public void ValidarPlanetaCantidadDiasPeriodo()
         {
-            Planet planeta = new Planet("Ferengi", 1, 500, new System.Tuple<double, double>(0,500), true);
+            Planet planeta = new Planet("Ferengi", 1, 500, new Coordenadas(0,500));
 
             Assert.AreEqual(360, planeta.CantidadDiasPeriodo());
         }
@@ -18,7 +18,7 @@ namespace MeliChallenge
         [TestMethod]
         public void ValidarPlanetaDesplazamientoEnRadianes()
         {
-            Planet planeta = new Planet("Ferengi", 1, 500, new System.Tuple<double, double>(0, 500), true);
+            Planet planeta = new Planet("Ferengi", 1, 500, new Coordenadas(0, 500));
 
             Assert.AreEqual(3*Math.PI/2, planeta.DesplazamientoEnRadianes(180));
         }
@@ -26,10 +26,10 @@ namespace MeliChallenge
         [TestMethod]
         public void ValidarPlanetaDesplazamientoEnCoordenadas()
         {
-            Planet planeta = new Planet("Ferengi", 1, 500, new System.Tuple<double, double>(0, 500), true);
+            Planet planeta = new Planet("Ferengi", 1, 500, new Coordenadas(0, 500));
             var coordenadas = planeta.GetPosicionEnDias(180);
-            Assert.AreEqual(0, Convert.ToInt32(coordenadas.Item1));
-            Assert.AreEqual(-500, coordenadas.Item2);
+            Assert.AreEqual(0, Convert.ToInt32(coordenadas.X));
+            Assert.AreEqual(-500, coordenadas.Y);
         }
     }
 }
