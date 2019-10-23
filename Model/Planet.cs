@@ -9,7 +9,6 @@ namespace Model
                       Double distanciaAEstrella,
                       Coordenadas coordenadasIniciales)
         {
-            //TODO validar parametros
             this.Nombre = nombre;
             this.VelocidadAngular = velocidadAngular;
             this.DistanciaAEstrella = distanciaAEstrella;
@@ -17,9 +16,6 @@ namespace Model
             this.GetPosicionActual = coordenadasIniciales;
         }
 
-        /// <summary>
-        /// Velocidad angular en grados/dias 
-        /// </summary>
         public Double VelocidadAngular { get; private set; }
         public Double DistanciaAEstrella { get; private set; }
         public string Nombre { get; private set; }
@@ -46,8 +42,7 @@ namespace Model
         public double DesplazamientoEnRadianes(int dias) 
         {
             //Segun libro de física q(t) = q0 + w(t - t0)
-            //return PosicionInicialEnRadianes + (VelocidadAngularEnRadianes * dias);
-            return PosicionInicialEnRadianes + ((((dias * VelocidadAngular) % 360) * Math.PI) / 180);
+            return PosicionInicialEnRadianes + (VelocidadAngularEnRadianes * dias);
         }
 
         public Coordenadas GetPosicionActual { get; private set; }
