@@ -1,4 +1,5 @@
 ﻿using Domain.Exceptions;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
@@ -38,6 +39,18 @@ namespace Infrastructure.Bootstrap.Extensions.ApplicationBuilder
                     {
                         message = this.CutArgumentMessage(argumentException.Message)
                     }
+                });
+
+                httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+                httpContext.Response.ContentType = "application/json";
+
+                await httpContext.Response.WriteAsync(errorObject, Encoding.UTF8);
+            }
+            else if (exceptionHandlerPathFeature?.Error is ValidationException validationException)
+            {
+                string errorObject = JsonConvert.SerializeObject(new
+                {
+                    errors = validationException.Errors.Select(x => x.ErrorMessage)
                 });
 
                 httpContext.Response.StatusCode = StatusCodes.Status400BadRequest;

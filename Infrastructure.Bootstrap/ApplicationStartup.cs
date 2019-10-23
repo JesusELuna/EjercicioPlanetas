@@ -1,4 +1,4 @@
-﻿using Application.Features.Clima.Queries;
+﻿using Application.Features.Prediccion.Queries;
 using Autofac.Extensions.DependencyInjection;
 using Infrastructure.Bootstrap.Extensions.ApplicationBuilder;
 using Infrastructure.Bootstrap.Extensions.ServiceCollection;
@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -35,9 +36,11 @@ namespace Infrastructure.Bootstrap
             services.ConfigureResponseCompression();
             services.AddHttpContextAccessor();
             services.AddCorsConfiguration();
-            services.AddMediatR(typeof(GetClimaByDiaQuery).Assembly);
+            services.AddMediatR(typeof(GetPrediccionByDiaQuery).Assembly);
+            services.AddDbContext<PrediccionDBContext>(options => options.UseInMemoryDatabase(databaseName: "Climas"));
 
             var container = services.AddConfigurationAutofac(this.Configuration, env);
+            
             return new AutofacServiceProvider(container);
         }
 
@@ -51,6 +54,7 @@ namespace Infrastructure.Bootstrap
                 errorPipeline.UseExceptionHandlerMiddleware();
             });
             app.UseMvc();
+            DataGenerator.Initialize(app.ApplicationServices);
         }
     }
 }

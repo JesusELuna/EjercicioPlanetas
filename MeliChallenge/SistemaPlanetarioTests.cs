@@ -56,20 +56,32 @@ namespace Tests
                 new Planet("Vulcano", -5, 1000, new Coordenadas(0,1000)),
             });
 
-            var dias = 360;
+            var dias = 360 * 10;
             int cantidadSequias = 0;
             int cantidadOptimos = 0;
             int cantidadLluvia = 0;
             int unknown = 0;
+            Dictionary<double, List<int>> DiasLluvia = new Dictionary<double, List<int>>();
+            double maxPerimetro = 0;
             for (int i = 0; i < dias; i++)
             {
-                sistema.MoverADia(i);
-                if (sistema.PeriodoSequia())
+                Clima clima = sistema.ConsultarClimaPorDia(i);
+                if (clima.Tipo == TipoClima.SEQUIA)
                     cantidadSequias++;
-                else if (sistema.PeriodoOptimos())
+                else if (clima.Tipo == TipoClima.OPTIMO)
                     cantidadOptimos++;
-                else if (sistema.Lluvia())
+                else if (clima.Tipo == TipoClima.LLUVIA)
+                {
                     cantidadLluvia++;
+                    if (!DiasLluvia.ContainsKey(clima.Perimetro.Value))
+                        DiasLluvia.Add(clima.Perimetro.Value, new List<int>() { i });
+                    else
+                    {
+                        DiasLluvia[clima.Perimetro.Value].Add(i);
+                    }
+                    if (maxPerimetro < clima.Perimetro.Value) maxPerimetro = clima.Perimetro.Value;
+                }
+                  
                 else
                     unknown++;
             }

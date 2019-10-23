@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Domain.Prediccion.Queries;
+using Infrastructure.Features.Prediccion.Repository;
 
 namespace Infrastructure.Bootstrap.AutofacModules.Features
 {
@@ -6,9 +8,9 @@ namespace Infrastructure.Bootstrap.AutofacModules.Features
     {
         protected override void Load(ContainerBuilder builder)
         {
-            //builder.RegisterType<BranchRepository>()
-            // .As<IBranchRepository>()
-            // .InstancePerLifetimeScope();
+            builder.RegisterType<PrediccionRepository>()
+             .As<IPrediccionRepository>()
+             .InstancePerLifetimeScope();
         }
     }
 }

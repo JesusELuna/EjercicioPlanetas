@@ -1,5 +1,5 @@
 ﻿using Application.Behaviors;
-using Application.Features.Clima.Queries;
+using Application.Features.Prediccion.Queries;
 using Autofac;
 using MediatR;
 
@@ -16,7 +16,7 @@ namespace Infrastructure.Bootstrap.AutofacModules
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(typeof(GetClimaByDiaQuery).Assembly)
+            builder.RegisterAssemblyTypes(typeof(GetPrediccionByDiaQuery).Assembly)
                 .AsImplementedInterfaces();
 
             if (this.enableCommandLogging)
