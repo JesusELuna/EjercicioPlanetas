@@ -31,3 +31,5 @@ La api está desplegada en GCloud, en la ruta https://rare-disk-256818.appspot.c
 3. Mejorar diseño de obtención de climas 
 4. Ver como cambiar id de google cloud porque queda fea la url
 5. Mejorar despliegue (es muy manual)
+6. Mover constantes a appsettings
+7. usar automapper 
