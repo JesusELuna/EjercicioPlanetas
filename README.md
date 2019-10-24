@@ -1,4 +1,6 @@
-# Challenge
+# Challenge  
+
+[![Build Status](https://travis-ci.com/JesusELuna/EjercicioPlanetas.svg?branch=master)](https://travis-ci.com/JesusELuna/EjercicioPlanetas)
 
 Realizar un programa informático para poder predecir en los próximos 10 años:
 1. ¿Cuántos períodos de sequía habrá?
