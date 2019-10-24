@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Domain;
 using System;
 
-namespace MeliChallenge
+namespace Tests
 {
     [TestClass]
     public class PlanetTests

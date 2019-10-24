@@ -23,18 +23,16 @@ namespace API.Controllers
         /// </summary>
         [HttpGet("{day}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<WeatherDTO> Get(int day)
         {
             return await this._mediator.Send(new GetPredictionByDayQuery(day));
         }
 
         /// <summary>
-        /// Obtiene el clima del día indicado
+        /// Obtiene las predicciones de clima en 10 años
         /// </summary>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IList<PredictionDTO>> GetPredictions()
         {
             return await this._mediator.Send(new GetPredictionsQuery());
