@@ -23,10 +23,10 @@ dotnet run ./API/API.csproj
 ```
 
 ## Uso 
-La api está desplegada en GCloud, en la ruta https://rare-disk-256818.appspot.com (ahí mismo está la documentación de la api)
+La api está desplegada en GCloud, en la ruta https://rare-disk-256818.appspot.com (ahí mismo está la documentación)
 
 ## Posibles Mejoras
-1. Usar una base de datos "normal", ahora estoy usando uno en memoria 
+1. No usar una base de datos en memoria 
 2. Implementar interfaz gráfica para observar el movimiento de los planetas
 3. Mejorar diseño de obtención de climas 
 4. Ver como cambiar id de google cloud porque queda fea la url
