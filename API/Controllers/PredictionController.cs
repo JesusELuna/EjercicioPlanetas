@@ -18,6 +18,9 @@ namespace API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Obtiene el clima del día indicado
+        /// </summary>
         [HttpGet("{day}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -26,6 +29,9 @@ namespace API.Controllers
             return await this._mediator.Send(new GetPredictionByDayQuery(day));
         }
 
+        /// <summary>
+        /// Obtiene el clima del día indicado
+        /// </summary>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
