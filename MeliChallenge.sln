@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Bootstrap", "Infrastructure.Bootstrap\Infrastructure.Bootstrap.csproj", "{9B543442-FFFD-42B5-B61D-495F52BE4CFF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-tests", "4-tests", "{D991C2EC-3A1E-4F83-98BA-36569A5B16B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{650C41D0-D53B-43FE-ADE9-F0BD8CE772D2} = {D991C2EC-3A1E-4F83-98BA-36569A5B16B7}
 		{070AFA9A-2C57-42B0-97DF-1A947C62643C} = {1F2F6D64-2559-45D7-8E10-4779FDA88905}
 		{685E07CB-DBD7-4EB2-9EBC-9455796AC167} = {7EF3E481-B1ED-4249-87C5-69E7DABE7722}
 		{E6A5D0CD-C11E-4DD4-AAC7-03219312F831} = {1F2F6D64-2559-45D7-8E10-4779FDA88905}

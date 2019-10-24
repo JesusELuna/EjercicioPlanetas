@@ -1,5 +1,5 @@
 ﻿using Application.Behaviors;
-using Application.Features.Prediccion.Queries;
+using Application.Features.Prediction.Queries;
 using Autofac;
 using MediatR;
 
@@ -16,7 +16,7 @@ namespace Infrastructure.Bootstrap.AutofacModules
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterAssemblyTypes(typeof(GetPrediccionByDiaQuery).Assembly)
+            builder.RegisterAssemblyTypes(typeof(GetPredictionByDayQuery).Assembly)
                 .AsImplementedInterfaces();
 
             if (this.enableCommandLogging)
