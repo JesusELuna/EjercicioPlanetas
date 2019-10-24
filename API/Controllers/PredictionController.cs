@@ -29,7 +29,7 @@ namespace API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IList<PredictionDTO>> Get()
+        public async Task<IList<PredictionDTO>> GetPredictions()
         {
             return await this._mediator.Send(new GetPredictionsQuery());
         }
