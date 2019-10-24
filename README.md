@@ -16,3 +16,18 @@ consultado.
 Cloudfoudry) y enviar la URL para consulta:
 Ej: GET → http://....../clima?dia=566 → Respuesta: {“dia”:566, “clima”:”lluvia”}
 
+## Uso local:
+
+```shell
+dotnet run ./API/API.csproj
+```
+
+## Uso 
+La api está desplegada en GCloud, en la ruta https://rare-disk-256818.appspot.com (ahí mismo está la documentación de la api)
+
+## Posibles Mejoras
+1. Usar una base de datos "normal", ahora estoy usando uno en memoria 
+2. Implementar interfaz gráfica para observar el movimiento de los planetas
+3. Mejorar diseño de obtención de climas 
+4. Ver como cambiar id de google cloud porque queda fea la url
+5. Mejorar despliegue (es muy manual)

@@ -14,7 +14,7 @@ namespace Infrastructure.Bootstrap.Extensions.ServiceCollection
         {
             ContainerBuilder builder = new ContainerBuilder();
             
-            builder.RegisterModule<ClimaModule>();
+            builder.RegisterModule<WeatherModule>();
             builder.RegisterModule(new MediatorModule(configuration.GetValue("CommandLoggingEnabled", false)));
 
             builder.Populate(services);

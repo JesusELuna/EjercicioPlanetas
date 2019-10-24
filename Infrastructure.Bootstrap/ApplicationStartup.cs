@@ -1,4 +1,4 @@
-﻿using Application.Features.Prediccion.Queries;
+﻿using Application.Features.Prediction.Queries;
 using Autofac.Extensions.DependencyInjection;
 using Infrastructure.Bootstrap.Extensions.ApplicationBuilder;
 using Infrastructure.Bootstrap.Extensions.ServiceCollection;
@@ -36,8 +36,8 @@ namespace Infrastructure.Bootstrap
             services.ConfigureResponseCompression();
             services.AddHttpContextAccessor();
             services.AddCorsConfiguration();
-            services.AddMediatR(typeof(GetPrediccionByDiaQuery).Assembly);
-            services.AddDbContext<PrediccionDBContext>(options => options.UseInMemoryDatabase(databaseName: "Climas"));
+            services.AddMediatR(typeof(GetPredictionByDayQuery).Assembly);
+            services.AddDbContext<PredictionDBContext>(options => options.UseInMemoryDatabase(databaseName: "Weathers"));
 
             var container = services.AddConfigurationAutofac(this.Configuration, env);
             

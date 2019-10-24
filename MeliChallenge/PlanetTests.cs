@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Model;
+using Domain;
 using System;
 
 namespace MeliChallenge
@@ -8,26 +8,26 @@ namespace MeliChallenge
     public class PlanetTests
     {
         [TestMethod]
-        public void ValidarPlanetaCantidadDiasPeriodo()
+        public void ValidateDaysInYearPlanet()
         {
-            Planet planeta = new Planet("Ferengi", 1, 500, new Coordenadas(0,500));
+            Planet planeta = new Planet("Ferengi", 1, 500, new Coordinate(0,500));
 
-            Assert.AreEqual(360, planeta.CantidadDiasPeriodo());
+            Assert.AreEqual(360, planeta.DaysTotalTranslation());
         }
 
         [TestMethod]
-        public void ValidarPlanetaDesplazamientoEnRadianes()
+        public void ValidateMovement()
         {
-            Planet planeta = new Planet("Ferengi", 1, 500, new Coordenadas(0, 500));
+            Planet planeta = new Planet("Ferengi", 1, 500, new Coordinate(0, 500));
 
-            Assert.AreEqual(3*Math.PI/2, planeta.DesplazamientoEnRadianes(180));
+            Assert.AreEqual(3*Math.PI/2, planeta.Movement(180));
         }
 
         [TestMethod]
-        public void ValidarPlanetaDesplazamientoEnCoordenadas()
+        public void ValidatePositionInDays()
         {
-            Planet planeta = new Planet("Ferengi", 1, 500, new Coordenadas(0, 500));
-            var coordenadas = planeta.GetPosicionEnDias(180);
+            Planet planeta = new Planet("Ferengi", 1, 500, new Coordinate(0, 500));
+            var coordenadas = planeta.GetPosition(180);
             Assert.AreEqual(0, Convert.ToInt32(coordenadas.X));
             Assert.AreEqual(-500, coordenadas.Y);
         }
